@@ -142,12 +142,22 @@ module HistoryTracker
         end
 
         def default_history_tracker_attributes(action, modifier_id=HistoryTracker.current_modifier_id)
-          {
-            association_chain: traverse_association_chain,
-            trackable_klass_name: self.class.name,
-            modifier_id: modifier_id,
-            action: action.to_s
-          }
+          if modifier_id.class.name == 'Integer'
+            {
+              association_chain: traverse_association_chain,
+              trackable_klass_name: self.class.name,
+              modifier_id: modifier_id,
+              action: action.to_s
+            }
+          else
+            {
+              association_chain: traverse_association_chain,
+              trackable_klass_name: self.class.name,
+              modifier_mongo_id: modifier_id.to_s,
+              modifier_id: 0,
+              action: action.to_s
+            }
+          end
         end
 
         # Returns an array of original and modified from changes
