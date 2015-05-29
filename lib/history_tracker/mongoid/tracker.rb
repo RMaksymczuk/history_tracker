@@ -18,7 +18,7 @@ module HistoryTracker
         field     :modified,              type: Hash,    default: {}
         field     :changeset,             type: Hash,    default: {}, as: :changes
         field     :action,                type: String
-        field     :modifier_id,           type: Integer
+        field     :modifier_id,           type: String
         field     :trackable_klass_name,  type: String
 
         ## Validations
