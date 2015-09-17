@@ -65,7 +65,6 @@ module HistoryTracker
               errors.add(:modified, 'must not be blank')  if modified.blank?
               errors.add(:changeset, 'must not be blank') if changeset.blank?
             when 'update'
-              errors.add(:original, 'must not be blank')  if original.blank?
               errors.add(:modified, 'must not be blank')  if modified.blank?
               errors.add(:changeset, 'must not be blank') if changeset.blank?
             when 'destroy'
